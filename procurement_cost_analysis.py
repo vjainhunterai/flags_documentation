@@ -83,7 +83,7 @@ def clean_desc(text):
 def load_and_aggregate(filepath, desc_col, cost_col, qty_col, amt_col, uom_col, id_col):
     """Load transaction data, filter, and aggregate by description."""
     df = pd.read_csv(filepath, sep=FILE_SEP, encoding=FILE_ENCODING,
-                     on_bad_lines='skip', engine='python')
+                     error_bad_lines=False, engine='python')
 
     print(f"  Raw rows: {len(df)}")
 
